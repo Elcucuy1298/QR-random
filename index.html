@@ -16,6 +16,7 @@
             background-color: #f0f0f0;
         }
         .container {
+            position: relative;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -42,6 +43,14 @@
         button:hover {
             background-color: #0056b3;
         }
+        #qrCode {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: none; /* Initially hidden */
+        }
     </style>
 </head>
 <body>
@@ -64,6 +73,8 @@
             var contactNumber = document.getElementById("contactNumber").value;
             var userData = "Name: " + name + "\nID Number: " + idNumber + "\nContact Number: " + contactNumber;
 
+            console.log("User Data:", userData); // Log user data
+
             // Clear previous QR code if exists
             document.getElementById("qrCode").innerHTML = '';
 
@@ -73,6 +84,11 @@
                 width: 300,
                 height: 300
             });
+
+            console.log("QR code generated"); // Log QR code generation
+
+            // Show QR code
+            document.getElementById("qrCode").style.display = "block";
         }
     </script>
 </body>
